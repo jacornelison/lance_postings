@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>R1C1 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R1C1 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R2C1";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Aug 8
+    </time> —
+    H. Athreya & J. Cornelison
+
+  </header>
+
+  <hr>
+  <p>
+  Summary:
+  <ul>
+  <li>No obvious resonances found. </li>
+  <li>SEM images done by T. Cecil showed delamination of the microstrip, suspected to be cause of no resonances</li>
+  </ul>
+
+  </p>
+
+  <hr>
+
+  <section><h2>Fab Info</h2>
+  <p>
+  High-Q SiC
+  </p>
+
+  <p>
+  *should probably include some info about the mask.
+  </p>
+
+  </section>
+
+  <section><h2>Wide Sweeps</h2>
+
+
+    <figure>
+      <img alt="Ultrawide Sweep Pager" id="widesweeppager" src="figs/ultrawide_sweep.png" width="95%">
+      <figcaption style="text-align: center; font-size: 16px;">
+          Ultrawide sweep from 1 GHz to 15 GHz, no obvious resonances and smaller sweeps in this range were done to confirm that
+      </figcaption>
+  </figure>
+
+      <section><h2>SEM Images</h2>
+
+
+    <figure style="counter-reset: figure 0;">
+      <img alt="SEM Images Pager" id="semimagespager" src="figs/SEM_1.jpg" width="95%">
+      <figcaption style="text-align: center; font-size: 16px;">
+          Closeup of resonator delimation on SEM
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img alt="SEM Images Pager" id="semimagespager" src="figs/SEM_2.jpg" width="95%">
+      <figcaption style="text-align: center; font-size: 16px;">
+          Zoom out of the resonator, still showing significant delamination
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img alt="SEM Images Pager" id="semimagespager" src="figs/SEM_3.jpg" width="95%">
+      <figcaption style="text-align: center; font-size: 16px;">
+          Closeup of the etch
+      </figcaption>
+    </figure>
+
+</body>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>R1C2 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R1C2 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R1C2";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Aug 17
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>
+Summary:
+<ul>
+<li> We believe there could be one weak resonator at 6.29 GHz </li>
+<li> Weak evidence to support theory that adding the extra grounding bond limited the standing waves </li>
+<li> No obvious/strong resonances for both SiC samples suggests a possible redesign of mask </li>
+<li> <a href="https://docs.google.com/presentation/d/1iXM_WE1fDPB8YBAjOD7Otsj8hsociVTI4I4dMVH-vro/edit?usp=sharing"> link to results discussion slides</a> </li>
+</ul>
+
+</p>
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+Si-rich SiC
+</p>
+
+<p>
+*should probably include some info about the mask.
+</p>
+
+</section>
+
+<section><h2>Wide Sweeps</h2>
+
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R1C2_pwr_10_3GHz_10GHz.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Wide sweep here shows that only 1 resonator is alive
+    </figcaption>
+  </figure>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Please refer to the results discussion slides to get a detailed walkthrough of the wide sweeps
+  </p>
+
+</section>
+
+<section><h2>Power Sweeps - 1 potential resonator</h2>
+
+  <figure>
+    <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_0_Delft_R1C2_time_13_56_28_hi_f.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Power fine sweep for the 1 potential resonator, still showing small evidence of resonator
+    </figcaption>
+  </figure>
+
+</section>
+
+<section><h2>Temperature Sweeps</h2>
+
+  <figure>
+    <img alt="Temperature Sweep Pager" id="tempsweeppager" src="figs/F_vs_T_fits_res_0_Delft_R1C2_res_vs_T.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Temp sweep showing slight shift in resonant freq for the potential resonator
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Temperature Sweep Pager" id="tempsweeppager" src="figs/F_vs_T_fits_res_0_Delft_R1C2.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        TLS+MBT fit, fit is not good so tan(delta) shouldn't be trusted
+    </figcaption>
+  </figure>
+
+
+</section>
+
+<section><h2>SEM Pictures</h2>
+    <p>
+    <li> <a href="https://docs.google.com/presentation/d/1rnKARQC6-8OiRJFKzOjVm5ln9gti-3EN/edit?usp=sharing&ouid=103591496635403878125&rtpof=true&sd=true"> link to SEM results</a> </li>
+
+    </p>
+    <figure>
+      <img alt="SEM Pictures Pager" id="sempicspager" src="figs/res0_SEM.png" width="95%"/>
+      <figcaption style="text-align: center; font-size: 16px;">
+          SEM of the 1 potentially good resonator
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img alt="SEM Pictures Pager" id="sempicspager" src="figs/res1_SEM.png" width="95%"/>
+      <figcaption style="text-align: center; font-size: 16px;">
+          very minimal delamination
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img alt="SEM Pictures Pager" id="sempicspager" src="figs/res2_SEM.png" width="95%"/>
+      <figcaption style="text-align: center; font-size: 16px;">
+          very minimal delamination
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img alt="SEM Pictures Pager" id="sempicspager" src="figs/res3_SEM.png" width="95%"/>
+      <figcaption style="text-align: center; font-size: 16px;">
+          very minimal delamination
+      </figcaption>
+    </figure>
+
+</section>
