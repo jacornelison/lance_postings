@@ -43,8 +43,8 @@
 <p>
 Summary:
 <ul>
-<li>All four resonators look healthy. </li>
-<li>tan&delta; = $9\times10^{-4}$ -- pretty typical of what we see of SiN at Argonne</li>
+<li>Can see four resonators - they show up a little weaker than others </li>
+<li>tan&delta; = $3.6\times10^{-3}$ -- A little higher than Argonne averages</li>
 </ul>
 
 </p>
@@ -53,7 +53,7 @@ Summary:
 
 <section><h2>Fab Info</h2>
 <p>
-"Kavli Standard" SiN
+Stoichiometric less dense
 </p>
 
 <p>
@@ -65,108 +65,356 @@ Summary:
 <section><h2>Wide Sweeps</h2>
 
 
-<figure>
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_09_25.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Full wide sweep, not showing Res3
+    </figcaption>
+  </figure>
 
-        <img alt="Wide Sweep Pager" id="widesweeppager" src="#" width="95%"/>
-        <figcaption>
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_16_51.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res2 and Res3
+    </figcaption>
+  </figure>
 
-        </figcaption>
-        <script type="text/javascript">
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_21_38.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res0 and Res1
+    </figcaption>
+  </figure>
 
-			pager.link("#widesweeppager",
-                {
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_23_30.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res1 zoom-in
+    </figcaption>
+  </figure>
 
-                },
-                function(params) {
-                    return 'figs/VNA_wide_sweep_'+samplename+'_pwr_-10.png';
-
-                });
-
-        </script>
-    </figure>
 
 
 </section>
 <section><h2>Power Sweeps</h2>
-<figure>
-        <img alt="Power Sweep Pager" id="powersweeppager" src="#" width="95%"/>
-        <figcaption>
 
-        </figcaption>
-        <script type="text/javascript">
+  <figure>
+    <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_0_Delft_R3C2_time_13_53_49_hi_f.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Power Res0
+    </figcaption>
+  </figure>
 
-			pager.link("#powersweeppager",
-                {
-					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
-                },
-                function(params) {
-                    return 'figs/IQvsPower_res_'+params.res+'_'+samplename+'.png';
+  <figure>
+    <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_1_Delft_R3C2_time_13_53_49_hi_f.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Power Res1
+    </figcaption>
+  </figure>
 
-                });
-            pager.setparams({
-				'res': '0',
-            });
-        </script>
-    </figure>
+  <figure>
+    <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_2_Delft_R3C2_time_13_53_49_hi_f.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Power Res2
+    </figcaption>
+  </figure>
 
-<figure>
+  <figure>
+    <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_3_Delft_R3C2_time_13_53_49_hi_f.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Power Res3
+    </figcaption>
+  </figure>
 
-        <img alt="Power Fit Parms Pager" id="powerfitparmspager" src="#" width="95%"/>
-        <figcaption>
-
-        </figcaption>
-        <script type="text/javascript">
-
-			pager.link("#powerfitparmspager",
-                {
-
-                },
-                function(params) {
-                    return 'figs/FitParmsvsPower_res_'+samplename+'.png';
-
-                });
-
-        </script>
-    </figure>
 
 </section>
 <section><h2>Temperature Sweeps</h2>
-    <p>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Up:
+  </p>
+
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_0_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res0 Upsweep
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_1_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res1 Upsweep
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_2_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res2 Upsweep
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_3_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res3 Upsweep
+    </figcaption>
+  </figure>
 
 
-    </p>
-    <figure>
-        <img alt="Temp Sweep Pager" id="tempsweeppager" src="#" width="95%"/>
-        <figcaption>
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Down:
+  </p>
 
-        </figcaption>
-        <script type="text/javascript">
 
-			pager.link("#tempsweeppager",
-                {
-                    'Plot|plt': ['IvsQ|IQvsTemp','$f_0$vsT|F_vs_T_fits','$Q_i$vsT|3'],
-					'Fit Type|fit': ['TLS-only|_tls_only','TLS+MBT|'],
-					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_0_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res0 Downsweep
+    </figcaption>
+  </figure>
 
-                },
-                function(params) {
-					if (params.plt=="IQvsTemp") {
-						return 'figs/'+params.plt+'_res_'+params.res+'_'+samplename+'.png';
-					} else {
-                    return 'figs/'+params.plt+params.fit+'_res_'+params.res+'_'+samplename+'.png';
-					}
-                });
-            pager.setparams({
-                'plt': 'IQvsTemp',
-                'fit': '_tls_only',
-				'res': '0',
-            });
-        </script>
-    </figure>
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_1_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res1 Downsweep
+    </figcaption>
+  </figure>
 
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_2_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res2 Downsweep
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Temp Sweep Pager" id="tempsweeppager" src="figs/IQvsTemp_res_3_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        IQ vs Temp Res3 Downsweep
+    </figcaption>
+  </figure>
+
+</section>
+
+<section><h2>Fits</h2>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS-only from Mag Up:
+  </p>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_0_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Upsweep Res0
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_1_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Upsweep Res1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_2_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Upsweep Res2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_3_Delft_R3C2_upsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Upsweep Res3
+    </figcaption>
+  </figure>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS+MBT from Mag Up:
+  </p>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_0_Delft_R3C2_upsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Upsweep Res0
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_1_Delft_R3C2_upsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Upsweep Res1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_2_Delft_R3C2_upsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Upsweep Res2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_3_Delft_R3C2_upsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Upsweep Res3
+    </figcaption>
+  </figure>
+
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS-only from Mag Down:
+  </p>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_0_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Downsweep Res0
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_1_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Downsweep Res1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_2_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Downsweep Res2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_tls_only_res_3_Delft_R3C2_downsweep.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS-only Downsweep Res3
+    </figcaption>
+  </figure>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS+MBT from Mag Down:
+  </p>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_0_Delft_R3C2_downsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Downsweep Res0
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_1_Delft_R3C2_downsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Downsweep Res1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_2_Delft_R3C2_downsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Downsweep Res2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Fits Pager" id="fitspager" src="figs/F_vs_T_fits_res_3_Delft_R3C2_downsweep_TLSMBT.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        F vs T fit TLS+MBT Downsweep Res3
+    </figcaption>
+  </figure>
 
 
 </section>
+
+
+<section><h2>SEM Images</h2>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_1_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_2_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_3_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 3
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_4_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 4
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_5_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 5
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_6_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 6
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_7_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 7
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_8_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 8
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_9_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 9
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_10_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 10
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R3C2_11_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R3C2 SEM Image 11
+    </figcaption>
+  </figure>
+
+
+</section>
+
 
 <!--<section>-->
 <!--    <h2>Source Parameters 2017</h2>-->

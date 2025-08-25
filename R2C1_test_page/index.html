@@ -31,17 +31,17 @@
 <header>
     <h1>R2C1 Test Page</h1>
 	<script type="text/javascript">var samplename = "Delft_R2C1";</script>
-	
+
     <time datetime="2020-xx-xx" class="published updated">
         2025 Jun 26
     </time> —
     J. Cornelison
-	
+
 </header>
 
 <hr>
 <p>
-Summary: 
+Summary:
 <ul>
 <li>All four resonators look healthy. </li>
 <li>tan&delta; = $9\times10^{-4}$ -- pretty typical of what we see of SiN at Argonne</li>
@@ -69,19 +69,19 @@ Summary:
 
         <img alt="Wide Sweep Pager" id="widesweeppager" src="#" width="95%"/>
         <figcaption>
-            
+
         </figcaption>
         <script type="text/javascript">
-            
+
 			pager.link("#widesweeppager",
                 {
-					
+
                 },
                 function(params) {
                     return 'figs/VNA_wide_sweep_'+samplename+'_pwr_-10.png';
 
                 });
-            
+
         </script>
     </figure>
 
@@ -91,10 +91,10 @@ Summary:
 <figure>
         <img alt="Power Sweep Pager" id="powersweeppager" src="#" width="95%"/>
         <figcaption>
-            
+
         </figcaption>
         <script type="text/javascript">
-            
+
 			pager.link("#powersweeppager",
                 {
 					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
@@ -113,41 +113,41 @@ Summary:
 
         <img alt="Power Fit Parms Pager" id="powerfitparmspager" src="#" width="95%"/>
         <figcaption>
-            
+
         </figcaption>
         <script type="text/javascript">
-            
+
 			pager.link("#powerfitparmspager",
                 {
-					
+
                 },
                 function(params) {
                     return 'figs/FitParmsvsPower_res_'+samplename+'.png';
 
                 });
-            
+
         </script>
     </figure>
 
 </section>
 <section><h2>Temperature Sweeps</h2>
     <p>
-	
- 
+
+
     </p>
     <figure>
         <img alt="Temp Sweep Pager" id="tempsweeppager" src="#" width="95%"/>
         <figcaption>
-            
+
         </figcaption>
         <script type="text/javascript">
-            
+
 			pager.link("#tempsweeppager",
                 {
                     'Plot|plt': ['IvsQ|IQvsTemp','$f_0$vsT|F_vs_T_fits','$Q_i$vsT|3'],
 					'Fit Type|fit': ['TLS-only|_tls_only','TLS+MBT|'],
 					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
-                    
+
                 },
                 function(params) {
 					if (params.plt=="IQvsTemp") {
@@ -165,6 +165,66 @@ Summary:
     </figure>
 
 
+
+</section>
+
+<section><h2>SEM Images</h2>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_1_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_2_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 2
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_3_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 3
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_4_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 4
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_5_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 5
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_6_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 6
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_7_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 7
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="SEM Pager" id="SEMpager" src="figs/R2C1_8_SEM.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        R2C1 SEM Image 8
+    </figcaption>
+  </figure>
 
 </section>
 
