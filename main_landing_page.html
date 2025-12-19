@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>LANCE Testing Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>LANCE: Resonator Testing Landing Page</h1>
+<!--
+    <time datetime="2020-xx-xx" class="published updated">
+        yyyy Mmm dd
+    </time> —
+    J. Cornelison
+	-->
+</header>
+
+<hr>
+
+<p>
+    Landing page for the LANCE dielectric loss measurements.
+</p>
+
+<hr>
+
+<section><h2>Microwave Samples</h2>
+
+    <h3>ADR Testing</h3>
+    <p>
+    The table below summarizes the results from the first batch of samples
+    </p>
+    <figure class="table">
+        <table class="results">
+            <tr>
+                <th>Sample</th>
+				<th>Dielectric</th>
+				<th>Conductor</th>
+                <th>Description</th>
+                <th>tan&delta; (10<sup>-4</sup>)</th>
+                <th>Date Tested</th>
+				<th>Comments<th>
+            </tr>
+            <tr>
+                <td><a href="./R1C1_test_page/index.html">R1C1</a></td>
+				<td>SiC</td>
+				<td>NbTiN</td>
+				<td>High Q</td>
+				<td>None Found</td>
+				<td>11Jul2025</td>
+				<td>SEM showed delamination</td>
+            </tr>
+			<tr>
+                <td><a href="./R1C2_test_page/index.html">R1C2</a></td>
+				<td>SiC</td>
+				<td>NbTiN</td>
+				<td>Si-Rich 1</td>
+				<td>Non-Ideal Results</td>
+				<td>16Jul2025</td>
+				<td>SEM showed mild delamination</td>
+            </tr>
+			<tr>
+                <td><a href="./R1C3_test_page">R1C3</a></td>
+				<td>SiC</td>
+				<td>NbTiN</td>
+				<td>Si-Rich 2</td>
+				<td>1.66</td>
+				<td>22Sep2025</td>
+				<td>3 rez, tested ADR thermalization</td>
+            </tr>
+			<tr>
+                <td><a href="./R2C1_test_page/index.html">R2C1</a></td>
+				<td>SiN</td>
+				<td>NbTiN</td>
+				<td>Kavli Standard SiN</td>
+				<td>9.1</td>
+				<td>26Jun2025</td>
+				<td>4 rez</td>
+            </tr>
+			<tr>
+                <td><a href="./R2C2_test_page">R2C2</a></td>
+				<td>a-Si:H</td>
+				<td>NbTiN</td>
+				<td>Kavli Standard</td>
+				<td>-</td>
+				<td>-</td>
+				<td>Cracked during fab :(</td>
+            </tr>
+			<tr>
+                <td><a href="./R2C3_test_page">R2C3</a></td>
+				<td>SiC</td>
+				<td>NbTiN</td>
+				<td>High Q (=R1C1)</td>
+				<td>1.54</td>
+				<td>30Sep2025</td>
+				<td>1 rez, current best</td>
+            </tr>
+			<tr>
+                <td><a href="./R3C1_test_page/index.html">R3C1</a></td>
+				<td>SiN</td>
+				<td>NbTiN</td>
+				<td>Stoichiometric, more dense</td>
+				<td>4.65</td>
+				<td>22Aug2025</td>
+				<td>4 rez</td>
+            </tr>
+			<tr>
+                <td><a href="./R3C2_test_page/index.html">R3C2</a></td>
+				<td>SiN</td>
+				<td>NbTiN</td>
+				<td>Stoichiometric, less dense</td>
+				<td>35.0</td>
+				<td>23Jul2025</td>
+				<td>3 rez</td>
+            </tr>
+        </table>
+
+</figure>
+
+<h3>Tan&delta; Comparison</h3>
+
+<div class="button-row">
+  <button onclick="showFigure('fig-lance')">LANCE only data</button>
+  <button onclick="showFigure('fig-argonne')">Argonne only data</button>
+  <button onclick="showFigure('fig-full')">All data</button>
+  <button onclick="showFigure('fig-material')">All data by material</button>
+  <button onclick="showFigure('fig-SiN')">SiNx only data</button>
+</div>
+
+<figure id="fig-lance" class="plot">
+  <img src="loss_sample_comparison_LANCE_only.png" width="800" alt="LANCE only data">
+  <figcaption>Figure 1: LANCE only data</figcaption>
+</figure>
+
+<figure id="fig-argonne" class="plot" style="display:none;">
+  <img src="loss_sample_comparison_argonne_only.png" width="800" alt="Argonne only data">
+  <figcaption>Figure 2: Argonne only data</figcaption>
+</figure>
+
+<figure id="fig-full" class="plot" style="display:none;">
+  <img src="loss_sample_comparison_full_1.png" width="800" alt="All data">
+  <figcaption>Figure 3: All data</figcaption>
+</figure>
+
+<figure id="fig-material" class="plot" style="display:none;">
+  <img src="loss_sample_comparison_full_material.png" width="800" alt="All data by material">
+  <figcaption>Figure 4: All data by material</figcaption>
+</figure>
+
+<figure id="fig-SiN" class="plot" style="display:none;">
+  <img src="loss_SiN_only.png" width="800" alt="SiNx only data">
+  <figcaption>Figure 5: SiNx only data</figcaption>
+</figure>
+
+<script>
+  function showFigure(figId) {
+    document.querySelectorAll('.plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+  }
+  figure figcaption::before {
+    content: none;             /* remove any CSS-generated "Figure X" */
+  }
+</style>
+
+<figure>
+  <img src="sim_comparison_20251218.png" alt="Sim Comparison Plot Updated 12/18/2025" width="800">
+  <figcaption>Sim Comparison Plot Updated 12/18/2025</figcaption>
+</figure>
+
+
+<h3>Misc Testing</h3>
+<ul>
+<li><a href="SEM_pager/index.html">SEM Images</a></li>
+</ul>
+
+
+</section>
+<hr>
+</body>
