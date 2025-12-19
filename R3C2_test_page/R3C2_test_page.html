@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>R3C2 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R3C2 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R3C2";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Aug 17
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>
+Summary:
+<ul>
+<li>Can see four resonators - they show up a little weaker than others </li>
+<li>tan&delta; = $3.5\times10^{-3}$ -- A little higher than Argonne averages</li>
+</ul>
+
+</p>
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+Stoichiometric less dense
+</p>
+
+<p>
+*should probably include some info about the mask.
+</p>
+
+</section>
+
+<section><h2>Wide Sweeps</h2>
+
+<!--
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_09_25.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Full wide sweep, not showing Res3
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_16_51.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res2 and Res3
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_21_38.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res0 and Res1
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img alt="Wide Sweep Pager" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_23_30.png" width="95%"/>
+    <figcaption style="text-align: center; font-size: 16px;">
+        Res1 zoom-in
+    </figcaption>
+  </figure>
+-->
+<div class="button-row">
+  <button onclick="showR3C2Sweep('fig-r3c2-sweep-0')">Full Sweep</button>
+  <button onclick="showR3C2Sweep('fig-r3c2-sweep-1')">Res2 & Res3</button>
+  <button onclick="showR3C2Sweep('fig-r3c2-sweep-2')">Res0 & Res1</button>
+  <button onclick="showR3C2Sweep('fig-r3c2-sweep-3')">Res1 Zoom</button>
+</div>
+
+<figure id="fig-r3c2-sweep-0" class="r3c2-sweep-plot">
+  <img src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_09_25.png"
+       alt="Full wide sweep not showing Res3">
+  <figcaption>Figure 2.1: Full wide sweep (Res3 not visible)</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sweep-1" class="r3c2-sweep-plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_16_51.png"
+       alt="Res2 and Res3">
+  <figcaption>Figure 2.2: Wide sweep showing Res2 and Res3</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sweep-2" class="r3c2-sweep-plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_21_38.png"
+       alt="Res0 and Res1">
+  <figcaption>Figure 2.3: Wide sweep showing Res0 and Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sweep-3" class="r3c2-sweep-plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C2_pwr_10_time_13_23_30.png"
+       alt="Res1 zoom-in">
+  <figcaption>Figure 2.4: Zoom-in on Res1</figcaption>
+</figure>
+
+<script>
+  function showR3C2Sweep(figId) {
+    document.querySelectorAll('.r3c2-sweep-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-sweep-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+<section><h2>Power Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showR3C2Power('fig-r3c2-power-0')">Res0</button>
+  <button onclick="showR3C2Power('fig-r3c2-power-1')">Res1</button>
+  <button onclick="showR3C2Power('fig-r3c2-power-2')">Res2</button>
+  <button onclick="showR3C2Power('fig-r3c2-power-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-power-0" class="r3c2-power-plot">
+  <img src="figs/IQvsPower_res_0_Delft_R3C2_time_13_53_49_hi_f.png" alt="IQ vs Power Res0">
+  <figcaption>Figure 3.1: IQ vs Power — Res0</figcaption>
+</figure>
+
+<figure id="fig-r3c2-power-1" class="r3c2-power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_1_Delft_R3C2_time_13_53_49_hi_f.png" alt="IQ vs Power Res1">
+  <figcaption>Figure 3.2: IQ vs Power — Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-power-2" class="r3c2-power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_2_Delft_R3C2_time_13_53_49_hi_f.png" alt="IQ vs Power Res2">
+  <figcaption>Figure 3.3: IQ vs Power — Res2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-power-3" class="r3c2-power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_3_Delft_R3C2_time_13_53_49_hi_f.png" alt="IQ vs Power Res3">
+  <figcaption>Figure 3.4: IQ vs Power — Res3</figcaption>
+</figure>
+
+<script>
+  function showR3C2Power(figId) {
+    document.querySelectorAll('.r3c2-power-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-power-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+<section><h2>Temperature Sweeps</h2>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Up:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TempUp('fig-r3c2-tempup-0')">Res0</button>
+  <button onclick="showR3C2TempUp('fig-r3c2-tempup-1')">Res1</button>
+  <button onclick="showR3C2TempUp('fig-r3c2-tempup-2')">Res2</button>
+  <button onclick="showR3C2TempUp('fig-r3c2-tempup-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tempup-0" class="r3c2-tempup-plot">
+  <img src="figs/IQvsTemp_res_0_Delft_R3C2_upsweep.png" alt="IQ vs Temp Res0 Upsweep">
+  <figcaption>Figure 4.1.1: IQ vs Temp — Res0 Upsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempup-1" class="r3c2-tempup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_1_Delft_R3C2_upsweep.png" alt="IQ vs Temp Res1 Upsweep">
+  <figcaption>Figure 4.1.2: IQ vs Temp — Res1 Upsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempup-2" class="r3c2-tempup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_2_Delft_R3C2_upsweep.png" alt="IQ vs Temp Res2 Upsweep">
+  <figcaption>Figure 4.1.3: IQ vs Temp — Res2 Upsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempup-3" class="r3c2-tempup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_3_Delft_R3C2_upsweep.png" alt="IQ vs Temp Res3 Upsweep">
+  <figcaption>Figure 4.1.4: IQ vs Temp — Res3 Upsweep</figcaption>
+</figure>
+
+<script>
+  function showR3C2TempUp(figId) {
+    document.querySelectorAll('.r3c2-tempup-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tempup-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Down:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TempDown('fig-r3c2-tempdown-0')">Res0</button>
+  <button onclick="showR3C2TempDown('fig-r3c2-tempdown-1')">Res1</button>
+  <button onclick="showR3C2TempDown('fig-r3c2-tempdown-2')">Res2</button>
+  <button onclick="showR3C2TempDown('fig-r3c2-tempdown-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tempdown-0" class="r3c2-tempdown-plot">
+  <img src="figs/IQvsTemp_res_0_Delft_R3C2_downsweep.png" alt="IQ vs Temp Res0 Downsweep">
+  <figcaption>Figure 4.2.1: IQ vs Temp — Res0 Downsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempdown-1" class="r3c2-tempdown-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_1_Delft_R3C2_downsweep.png" alt="IQ vs Temp Res1 Downsweep">
+  <figcaption>Figure 4.2.2: IQ vs Temp — Res1 Downsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempdown-2" class="r3c2-tempdown-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_2_Delft_R3C2_downsweep.png" alt="IQ vs Temp Res2 Downsweep">
+  <figcaption>Figure 4.2.3: IQ vs Temp — Res2 Downsweep</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tempdown-3" class="r3c2-tempdown-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_3_Delft_R3C2_downsweep.png" alt="IQ vs Temp Res3 Downsweep">
+  <figcaption>Figure 4.2.4: IQ vs Temp — Res3 Downsweep</figcaption>
+</figure>
+
+<script>
+  function showR3C2TempDown(figId) {
+    document.querySelectorAll('.r3c2-tempdown-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tempdown-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+<section><h2>Fits</h2>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS-only from Mag Up:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TLSUpsweep('fig-r3c2-tlsup-0')">Res0</button>
+  <button onclick="showR3C2TLSUpsweep('fig-r3c2-tlsup-1')">Res1</button>
+  <button onclick="showR3C2TLSUpsweep('fig-r3c2-tlsup-2')">Res2</button>
+  <button onclick="showR3C2TLSUpsweep('fig-r3c2-tlsup-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tlsup-0" class="r3c2-tlsup-plot">
+  <img src="figs/F_vs_T_fits_tls_only_res_0_Delft_R3C2_upsweep.png" alt="F vs T TLS-only Upsweep Res0">
+  <figcaption>Figure 5.1.1: F vs T fit TLS-only Upsweep — Res0</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsup-1" class="r3c2-tlsup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_1_Delft_R3C2_upsweep.png" alt="F vs T TLS-only Upsweep Res1">
+  <figcaption>Figure 5.1.2: F vs T fit TLS-only Upsweep — Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsup-2" class="r3c2-tlsup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_2_Delft_R3C2_upsweep.png" alt="F vs T TLS-only Upsweep Res2">
+  <figcaption>Figure 5.1.3: F vs T fit TLS-only Upsweep — Res2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsup-3" class="r3c2-tlsup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_3_Delft_R3C2_upsweep.png" alt="F vs T TLS-only Upsweep Res3">
+  <figcaption>Figure 5.1.4: F vs T fit TLS-only Upsweep — Res3</figcaption>
+</figure>
+
+<script>
+  function showR3C2TLSUpsweep(figId) {
+    document.querySelectorAll('.r3c2-tlsup-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tlsup-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS+MBT from Mag Up:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TLSMBTUpsweep('fig-r3c2-tlsmbtup-0')">Res0</button>
+  <button onclick="showR3C2TLSMBTUpsweep('fig-r3c2-tlsmbtup-1')">Res1</button>
+  <button onclick="showR3C2TLSMBTUpsweep('fig-r3c2-tlsmbtup-2')">Res2</button>
+  <button onclick="showR3C2TLSMBTUpsweep('fig-r3c2-tlsmbtup-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tlsmbtup-0" class="r3c2-tlsmbtup-plot">
+  <img src="figs/F_vs_T_fits_res_0_Delft_R3C2_upsweep_TLSMBT.png" alt="F vs T TLS+MBT Upsweep Res0">
+  <figcaption>Figure 5.2.1: F vs T fit TLS+MBT Upsweep — Res0</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtup-1" class="r3c2-tlsmbtup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_1_Delft_R3C2_upsweep_TLSMBT.png" alt="F vs T TLS+MBT Upsweep Res1">
+  <figcaption>Figure 5.2.2: F vs T fit TLS+MBT Upsweep — Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtup-2" class="r3c2-tlsmbtup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_2_Delft_R3C2_upsweep_TLSMBT.png" alt="F vs T TLS+MBT Upsweep Res2">
+  <figcaption>Figure 5.2.3: F vs T fit TLS+MBT Upsweep — Res2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtup-3" class="r3c2-tlsmbtup-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_3_Delft_R3C2_upsweep_TLSMBT.png" alt="F vs T TLS+MBT Upsweep Res3">
+  <figcaption>Figure 5.2.4: F vs T fit TLS+MBT Upsweep — Res3</figcaption>
+</figure>
+
+<script>
+  function showR3C2TLSMBTUpsweep(figId) {
+    document.querySelectorAll('.r3c2-tlsmbtup-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tlsmbtup-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS-only from Mag Down:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TLSDown('fig-r3c2-tlsdown-0')">Res0</button>
+  <button onclick="showR3C2TLSDown('fig-r3c2-tlsdown-1')">Res1</button>
+  <button onclick="showR3C2TLSDown('fig-r3c2-tlsdown-2')">Res2</button>
+  <button onclick="showR3C2TLSDown('fig-r3c2-tlsdown-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tlsdown-0" class="r3c2-tlsdown-plot">
+  <img src="figs/F_vs_T_fits_tls_only_res_0_Delft_R3C2_downsweep.png" alt="F vs T TLS-only Downsweep Res0">
+  <figcaption>Figure 5.3.1: F vs T fit TLS-only Downsweep — Res0</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsdown-1" class="r3c2-tlsdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_1_Delft_R3C2_downsweep.png" alt="F vs T TLS-only Downsweep Res1">
+  <figcaption>Figure 5.3.2: F vs T fit TLS-only Downsweep — Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsdown-2" class="r3c2-tlsdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_2_Delft_R3C2_downsweep.png" alt="F vs T TLS-only Downsweep Res2">
+  <figcaption>Figure 5.3.3: F vs T fit TLS-only Downsweep — Res2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsdown-3" class="r3c2-tlsdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_3_Delft_R3C2_downsweep.png" alt="F vs T TLS-only Downsweep Res3">
+  <figcaption>Figure 5.3.4: F vs T fit TLS-only Downsweep — Res3</figcaption>
+</figure>
+
+<script>
+  function showR3C2TLSDown(figId) {
+    document.querySelectorAll('.r3c2-tlsdown-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tlsdown-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS+MBT from Mag Down:
+  </p>
+
+<div class="button-row">
+  <button onclick="showR3C2TLSMBTDown('fig-r3c2-tlsmbtdown-0')">Res0</button>
+  <button onclick="showR3C2TLSMBTDown('fig-r3c2-tlsmbtdown-1')">Res1</button>
+  <button onclick="showR3C2TLSMBTDown('fig-r3c2-tlsmbtdown-2')">Res2</button>
+  <button onclick="showR3C2TLSMBTDown('fig-r3c2-tlsmbtdown-3')">Res3</button>
+</div>
+
+<figure id="fig-r3c2-tlsmbtdown-0" class="r3c2-tlsmbtdown-plot">
+  <img src="figs/F_vs_T_fits_res_0_Delft_R3C2_downsweep_TLSMBT.png" alt="F vs T TLS+MBT Downsweep Res0">
+  <figcaption>Figure 15.1: F vs T fit TLS+MBT Downsweep — Res0</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtdown-1" class="r3c2-tlsmbtdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_1_Delft_R3C2_downsweep_TLSMBT.png" alt="F vs T TLS+MBT Downsweep Res1">
+  <figcaption>Figure 15.2: F vs T fit TLS+MBT Downsweep — Res1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtdown-2" class="r3c2-tlsmbtdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_2_Delft_R3C2_downsweep_TLSMBT.png" alt="F vs T TLS+MBT Downsweep Res2">
+  <figcaption>Figure 15.3: F vs T fit TLS+MBT Downsweep — Res2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-tlsmbtdown-3" class="r3c2-tlsmbtdown-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_res_3_Delft_R3C2_downsweep_TLSMBT.png" alt="F vs T TLS+MBT Downsweep Res3">
+  <figcaption>Figure 15.4: F vs T fit TLS+MBT Downsweep — Res3</figcaption>
+</figure>
+
+<script>
+  function showR3C2TLSMBTDown(figId) {
+    document.querySelectorAll('.r3c2-tlsmbtdown-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-tlsmbtdown-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+<section><h2>SEM Images</h2>
+
+<div class="button-row">
+  <button onclick="showR3C2SEM('fig-r3c2-sem-0')">SEM 1</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-1')">SEM 2</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-2')">SEM 3</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-3')">SEM 4</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-4')">SEM 5</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-5')">SEM 6</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-6')">SEM 7</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-7')">SEM 8</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-8')">SEM 9</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-9')">SEM 10</button>
+  <button onclick="showR3C2SEM('fig-r3c2-sem-10')">SEM 11</button>
+</div>
+
+<figure id="fig-r3c2-sem-0" class="r3c2-sem-plot">
+  <img src="figs/R3C2_1_SEM.png" alt="R3C2 SEM Image 1">
+  <figcaption>R3C2 SEM Image 1</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-1" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_2_SEM.png" alt="R3C2 SEM Image 2">
+  <figcaption>R3C2 SEM Image 2</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-2" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_3_SEM.png" alt="R3C2 SEM Image 3">
+  <figcaption>R3C2 SEM Image 3</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-3" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_4_SEM.png" alt="R3C2 SEM Image 4">
+  <figcaption>R3C2 SEM Image 4</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-4" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_5_SEM.png" alt="R3C2 SEM Image 5">
+  <figcaption>R3C2 SEM Image 5</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-5" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_6_SEM.png" alt="R3C2 SEM Image 6">
+  <figcaption>R3C2 SEM Image 6</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-6" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_7_SEM.png" alt="R3C2 SEM Image 7">
+  <figcaption>R3C2 SEM Image 7</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-7" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_8_SEM.png" alt="R3C2 SEM Image 8">
+  <figcaption>R3C2 SEM Image 8</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-8" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_9_SEM.png" alt="R3C2 SEM Image 9">
+  <figcaption>R3C2 SEM Image 9</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-9" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_10_SEM.png" alt="R3C2 SEM Image 10">
+  <figcaption>R3C2 SEM Image 10</figcaption>
+</figure>
+
+<figure id="fig-r3c2-sem-10" class="r3c2-sem-plot" style="display:none;">
+  <img src="figs/R3C2_11_SEM.png" alt="R3C2 SEM Image 11">
+  <figcaption>R3C2 SEM Image 11</figcaption>
+</figure>
+
+<script>
+  function showR3C2SEM(figId) {
+    document.querySelectorAll('.r3c2-sem-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.r3c2-sem-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+
+<!--<section>-->
+<!--    <h2>Source Parameters 2017</h2>-->
+
+<!--    <h3>Results</h3>-->
+
+<!--    <h3>Data</h3>-->
+
+<!--</section>-->
+
+<!--<section>-->
+<!--    <h2>Mirror Parameters 2018</h2>-->
+
+<!--    <h3>Results</h3>-->
+
+<!--    <h3>Data</h3>-->
+
+<!--</section>-->
+
+
+<hr>
+<!--
+<section class="appendix">
+<h2 class="appendix">Appendix</h2>
+    <h3>Footnotes</h3>
+    <p>Click on the number to return to the main text.</p>
+    <div class="footnote">
+        <p>
+        <sup><a name="ftn1" href="#sup1">[1]</a></sup>
+        This is a footnote. Click the number to return to main text.
+    </p>
+    </div>
+    <h3>Code</h3>
+    <p>Below is a list of code that was used for this analysis. The code is committed to the pipeline and can be found in the <tt>analysis/beammap/</tt> directory.</p>
+    <p id="code"></p>
+
+    <h3>Data</h3>
+    <p id="data"></p>
+    <h3>References</h3>
+
+    <p id="references"></p>
+
+
+    <p id="testp"></p>
+
+    <script type="text/javascript">
+
+        // Shorthand tags
+        var codes = [
+            "rps_fit_mirror_from_moon.m",
+            ];
+
+        // Posting titles
+        var desc = [
+            "Derives mirror parameters from observations of the moon.",
+        ];
+
+        // Make a list of references
+        var post = document.getElementById("code");
+        var msg = "<table class=\"code\">";
+        for (var code in codes){
+            msg = msg + "<tr><td><tt>"+codes[code]+"</tt></td><td> - </td><td>"+desc[code]+"</td>";
+        };
+        msg = msg+ "</table>";
+        post.innerHTML = msg;
+
+    </script>
+
+    <script type="text/javascript">
+
+        // Shorthand tags
+        var data = [
+            "moonsch.mat",
+            ];
+
+        // Posting titles
+        var desc = [
+            "Metadata of Moon observations",
+            ];
+
+        // Make a list of references
+        var post = document.getElementById("data");
+        var msg = "<table class=\"code\">";
+        for (var datum in data) {
+            msg = msg + "<tr><td><tt>" + data[datum] + "</tt></td><td> - </td><td>" + desc[datum] + "</td>";
+        }
+        ;
+        msg = msg + "</table>";
+        post.innerHTML = msg;
+
+    </script>
+
+
+
+    <script type="text/javascript">
+
+        // This my way of making shorthand links.
+        // We'll make a couple arrays with the 'tag' and href information
+        // and then look through each anchor element for the specified tag.
+        // The anchors should then just look like: <a href="tagname"></a>
+        // and the script will automatically fill in the hyperlings and text.
+
+
+        var posting_dir = window.location.href; // What's the current url?
+
+        var bkurl = "bicep.rc.fas.harvard.edu";
+        var spurl = "bicep.usap.gov";
+
+        // These are the possible places to find postings
+        // The strings are for if you post your posting in that directory.
+        var sitemap = {
+            jcornelison: "../../../",   // /jcornelison/postings/
+            bkcmb : "../../../../",     // /bkcmb/analysis_logbook/analysis/
+            bicep3: "../../../",        //
+            bicep_array: "../../../",   //
+            bicep2: "",                 // We shouldn't be posting in these, but still have postings we can reference.
+            keck  : "",                 // keck/analysis_logbook/analysis/
+            spuder: "",                 // ~spuder/hieno_analysis_logboo
+            bicep1: "",                 // ~bicep1/analysis_logbook_north/
+            general_projects:"",
+                   };
+        // Logbook Site map:
+        // personal:www/jcornelison/postings/
+        // bkcmb:   www/bkcmb/analysis_logbook/analysis/
+        // keck:    www/keck/analysis_logbook/analysis/
+        // BICEP3:  www/bicep3/analysis_logbook/
+        // BA:      www/bicep_array/analysis_logbook/
+        // We shouldn't be posting in these, but still have postings.
+        // bicep2:
+        // keck:    www/keck/analysis_logbook/analysis/
+        // spuder:  www/~spuder/hieno_analysis_logbook/
+        // bicep1:  www/~bicep1/analysis_logbook_north/
+
+        // Shorthand tags
+        var tags = [
+            "CAB2012",
+        ];
+
+        // Links
+        // Truncate the link down to the www directory in which it lies if you can.
+        // This ensures that we can view the linked postings at Pole without the internet.
+        var hrefs = [
+            "keck/analysis_logbook/analysis/20120510_beam_map_pointing/",
+        ];
+
+
+        // Posting titles
+        var desc = [
+            "Pointing Model for Keck Beam Maps",
+        ];
+        // Debug
+        var posty = document.getElementById("testp");
+
+
+        var preface = "";
+        var keys = Object.keys(sitemap);
+        // If we're not at pole or bicep, just post the full URL
+        // If we are, go back to the www directory.
+        if (posting_dir.match(new RegExp(bkurl))!=bkurl &
+            posting_dir.match(new RegExp(spurl))!=spurl){
+                preface = "http://" + bkurl+"/";
+            }
+        else {
+            for (key in keys){
+                if (posting_dir.match(new RegExp("/"+keys[key]+"/"))=="/"+keys[key]+"/"){
+                    preface = sitemap[keys[key]];
+                };
+            };
+
+        };
+
+        // Add the prefixes we can.
+        // Only add prefixes to directories in the sitemap so we don't break
+        // external references.
+        for (ref in hrefs) {
+            for (key in keys) {
+
+            // If there's a match, at the prefix and move on.
+            if(hrefs[ref].match(new RegExp(keys[key] + "/"))==keys[key]+"/"){
+                hrefs[ref] = preface+hrefs[ref];
+                break;
+            }
+            };
+        };
+
+        // posty.innerHTML = preface;
+
+        // Make a list of references
+        var post = document.getElementById("references");
+        var msg = "<table>";
+        for (var tag in tags){
+            msg = msg + "<tr><td><a href="+tags[tag]+"></a></td><td> - </td><td>"+desc[tag]+"</td>";
+        };
+        msg = msg+ "</table>";
+        post.innerHTML = msg;
+
+        // Look through all the hyperlinks and insert the proper links to the postings
+        var links = document.getElementsByTagName("A");
+        for (var link in links){
+            for (var tag in tags){
+                if (links[link].href.endsWith(tags[tag])){
+                    links[link].text = "("+tags[tag]+")";
+                    links[link].href = hrefs[tag];
+                    links[link].target = "_blank";
+                }
+            }
+        }
+
+    </script>
+</section>
+-->
+</body>

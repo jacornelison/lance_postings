@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>R3C1 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R3C1 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R3C2";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Aug 24
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>
+Summary:
+<ul>
+<li>Can see four resonators - they show up a little weaker than others </li>
+<li>tan&delta; = $4.67\times10^{-4}$ -- Best we have done so far! Better than averages at Argonne</li>
+</ul>
+
+</p>
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+Stoichiometric more dense
+</p>
+
+<p>
+*should probably include some info about the mask.
+</p>
+
+</section>
+
+<section><h2>Wide Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showFigure('fig-widesweep')">Full Sweep</button>
+  <button onclick="showFigure('fig-finesweep0')">Res0</button>
+  <button onclick="showFigure('fig-finesweep1')">Res1</button>
+  <button onclick="showFigure('fig-finesweep2')">Res2</button>
+  <button onclick="showFigure('fig-finesweep3')">Res3</button>
+  <button onclick="showFigure('fig-standingwave')">Standing Wave</button>
+</div>
+
+<figure id="fig-widesweep" class="plot">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_42_26.png" width="1000" alt="Full Sweep">
+  <figcaption>Figure 2.1: Full sweep showing all four resonators</figcaption>
+</figure>
+
+<figure id="fig-finesweep0" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_51_43.png" width="1000" alt="Res0">
+  <figcaption>Figure 2.2: Fine sweep of Res0</figcaption>
+</figure>
+
+<figure id="fig-finesweep1" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_48_38.png" width="1000" alt="Res1">
+  <figcaption>Figure 2.3: Fine sweep of Res1</figcaption>
+</figure>
+
+<figure id="fig-finesweep2" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_54_30.png" width="1000" alt="Res2">
+  <figcaption>Figure 2.4: Fine sweep of Res2</figcaption>
+</figure>
+
+<figure id="fig-finesweep3" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_56_38.png" width="1000" alt="Res3">
+  <figcaption>Figure 2.5: Fine sweep of Res3</figcaption>
+</figure>
+
+<figure id="fig-standingwave" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R3C1_pwr_-10_time_12_59_51.png" width="1000" alt="Standing Wave">
+  <figcaption>Figure 2.6: Zoom in on the standing wave that looks like a resonator</figcaption>
+</figure>
+
+<script>
+  function showFigure(figId) {
+    document.querySelectorAll('.plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+
+</section>
+<section><h2>Power Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showPowerFigure('fig-power0')">Res0</button>
+  <button onclick="showPowerFigure('fig-power1')">Res1</button>
+  <button onclick="showPowerFigure('fig-power2')">Res2</button>
+  <button onclick="showPowerFigure('fig-power3')">Res3</button>
+  <button onclick="showPowerFigure('fig-power4')">Standing Wave</button>
+</div>
+
+<figure id="fig-power0" class="power-plot">
+  <img src="figs/IQvsPower_res_0_Delft_R3C1_time_13_18_52_hi_f.png" width="1000" alt="IQ vs Power Res0">
+  <figcaption>Figure 3.1: IQ vs Power Res0</figcaption>
+</figure>
+
+<figure id="fig-power1" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_1_Delft_R3C1_time_13_18_52_hi_f.png" width="1000" alt="IQ vs Power Res1">
+  <figcaption>Figure 3.2: IQ vs Power Res1</figcaption>
+</figure>
+
+<figure id="fig-power2" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_2_Delft_R3C1_time_13_18_52_hi_f.png" width="1000" alt="IQ vs Power Res2">
+  <figcaption>Figure 3.3: IQ vs Power Res2</figcaption>
+</figure>
+
+<figure id="fig-power3" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_3_Delft_R3C1_time_13_18_52_hi_f.png" width="1000" alt="IQ vs Power Res3">
+  <figcaption>Figure 3.4: IQ vs Power Res3</figcaption>
+</figure>
+
+<figure id="fig-power4" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_4_Delft_R3C1_time_13_18_52_hi_f.png" width="1000" alt="IQ vs Power Standing Wave">
+  <figcaption>Figure 3.5: IQ vs Power for the standing wave that looks like a resonator</figcaption>
+</figure>
+
+<script>
+  function showPowerFigure(figId) {
+    document.querySelectorAll('.power-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.power-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+<section><h2>Temperature Sweeps</h2>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Up:
+  </p>
+
+<div class="button-row">
+  <button onclick="showTempMagUp('fig-temp-magup-0')">Res0</button>
+  <button onclick="showTempMagUp('fig-temp-magup-1')">Res1</button>
+  <button onclick="showTempMagUp('fig-temp-magup-2')">Res2</button>
+  <button onclick="showTempMagUp('fig-temp-magup-3')">Res3</button>
+</div>
+
+<figure id="fig-temp-magup-0" class="temp-magup-plot">
+  <img src="figs/IQvsTemp_res_0_Delft_R3C1_magup.png" alt="IQ vs Temp Res0 Mag Up">
+  <figcaption>Figure 4.1.1: IQ vs Temp Res0 (Mag Up)</figcaption>
+</figure>
+
+<figure id="fig-temp-magup-1" class="temp-magup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_1_Delft_R3C1_magup.png" alt="IQ vs Temp Res1 Mag Up">
+  <figcaption>Figure 4.1.2: IQ vs Temp Res1 (Mag Up)</figcaption>
+</figure>
+
+<figure id="fig-temp-magup-2" class="temp-magup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_2_Delft_R3C1_magup.png" alt="IQ vs Temp Res2 Mag Up">
+  <figcaption>Figure 4.1.3: IQ vs Temp Res2 (Mag Up)</figcaption>
+</figure>
+
+<figure id="fig-temp-magup-3" class="temp-magup-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_3_Delft_R3C1_magup.png" alt="IQ vs Temp Res3 Mag Up">
+  <figcaption>Figure 4.1.4: IQ vs Temp Res3 (Mag Up)</figcaption>
+</figure>
+
+<script>
+  function showTempMagUp(figId) {
+    document.querySelectorAll('.temp-magup-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.temp-magup-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Temperature Sweeps from Mag Down:
+  </p>
+
+<div class="button-row">
+  <button onclick="showTempMagDown('fig-temp-demag-0')">Res0</button>
+  <button onclick="showTempMagDown('fig-temp-demag-1')">Res1</button>
+  <button onclick="showTempMagDown('fig-temp-demag-2')">Res2</button>
+  <button onclick="showTempMagDown('fig-temp-demag-3')">Res3</button>
+</div>
+
+<figure id="fig-temp-demag-0" class="temp-demag-plot">
+  <img src="figs/IQvsTemp_res_0_Delft_R3C1_demag.png" alt="IQ vs Temp Res0 De-mag">
+  <figcaption>Figure 4.2.1: IQ vs Temp Res0 (Mag Down)</figcaption>
+</figure>
+
+<figure id="fig-temp-demag-1" class="temp-demag-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_1_Delft_R3C1_demag.png" alt="IQ vs Temp Res1 De-mag">
+  <figcaption>Figure 4.2.2: IQ vs Temp Res1 (Mag Down)</figcaption>
+</figure>
+
+<figure id="fig-temp-demag-2" class="temp-demag-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_2_Delft_R3C1_demag.png" alt="IQ vs Temp Res2 De-mag">
+  <figcaption>Figure 4.2.3: IQ vs Temp Res2 (Mag Down)</figcaption>
+</figure>
+
+<figure id="fig-temp-demag-3" class="temp-demag-plot" style="display:none;">
+  <img src="figs/IQvsTemp_res_3_Delft_R3C1_demag.png" alt="IQ vs Temp Res3 De-mag">
+  <figcaption>Figure 4.2.4: IQ vs Temp Res3 (Mag Down)</figcaption>
+</figure>
+
+<script>
+  function showTempMagDown(figId) {
+    document.querySelectorAll('.temp-demag-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.temp-demag-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+<section><h2>Fits</h2>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS-only:
+  </p>
+
+<div class="button-row">
+  <button onclick="showTLSFit('fig-tls-fit-0')">Res0</button>
+  <button onclick="showTLSFit('fig-tls-fit-1')">Res1</button>
+  <button onclick="showTLSFit('fig-tls-fit-2')">Res2</button>
+  <button onclick="showTLSFit('fig-tls-fit-3')">Res3</button>
+</div>
+
+<figure id="fig-tls-fit-0" class="tls-fit-plot">
+  <img src="figs/F_vs_T_fits_tls_only_res_0_Delft_R3C1.png" alt="F vs T fit TLS-only Res0">
+  <figcaption>Figure 5.1.1: F vs T fit (TLS-only) — Res0</figcaption>
+</figure>
+
+<figure id="fig-tls-fit-1" class="tls-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_1_Delft_R3C1.png" alt="F vs T fit TLS-only Res1">
+  <figcaption>Figure 5.1.2: F vs T fit (TLS-only) — Res1</figcaption>
+</figure>
+
+<figure id="fig-tls-fit-2" class="tls-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_2_Delft_R3C1.png" alt="F vs T fit TLS-only Res2">
+  <figcaption>Figure 5.1.3: F vs T fit (TLS-only) — Res2</figcaption>
+</figure>
+
+<figure id="fig-tls-fit-3" class="tls-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_tls_only_res_3_Delft_R3C1.png" alt="F vs T fit TLS-only Res3">
+  <figcaption>Figure 5.1.4: F vs T fit (TLS-only) — Res3</figcaption>
+</figure>
+
+<script>
+  function showTLSFit(figId) {
+    document.querySelectorAll('.tls-fit-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.tls-fit-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+  <p style="font-size: 20px; font-weight: bold;">
+  Fits from TLS+MBT:
+  </p>
+
+<div class="button-row">
+  <button onclick="showTLSMBTFit('fig-tlsmbt-fit-0')">Res0</button>
+  <button onclick="showTLSMBTFit('fig-tlsmbt-fit-1')">Res1</button>
+  <button onclick="showTLSMBTFit('fig-tlsmbt-fit-2')">Res2</button>
+  <button onclick="showTLSMBTFit('fig-tlsmbt-fit-3')">Res3</button>
+</div>
+
+<figure id="fig-tlsmbt-fit-0" class="tlsmbt-fit-plot">
+  <img src="figs/F_vs_T_fits_TLSMBT_res_0_Delft_R3C1.png" alt="F vs T fit TLS+MBT Res0">
+  <figcaption>Figure 5.2.1: F vs T fit (TLS + MBT) — Res0</figcaption>
+</figure>
+
+<figure id="fig-tlsmbt-fit-1" class="tlsmbt-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_TLSMBT_res_1_Delft_R3C1.png" alt="F vs T fit TLS+MBT Res1">
+  <figcaption>Figure 5.2.2: F vs T fit (TLS + MBT) — Res1</figcaption>
+</figure>
+
+<figure id="fig-tlsmbt-fit-2" class="tlsmbt-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_TLSMBT_res_2_Delft_R3C1.png" alt="F vs T fit TLS+MBT Res2">
+  <figcaption>Figure 5.2.3: F vs T fit (TLS + MBT) — Res2</figcaption>
+</figure>
+
+<figure id="fig-tlsmbt-fit-3" class="tlsmbt-fit-plot" style="display:none;">
+  <img src="figs/F_vs_T_fits_TLSMBT_res_3_Delft_R3C1.png" alt="F vs T fit TLS+MBT Res3">
+  <figcaption>Figure 5.2.4: F vs T fit (TLS + MBT) — Res3</figcaption>
+</figure>
+
+<script>
+  function showTLSMBTFit(figId) {
+    document.querySelectorAll('.tlsmbt-fit-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.tlsmbt-fit-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+
+</section>
+
+<hr>
+</body>
