@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>R1C3 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R1C3 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R1C3";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Dec 19
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>
+Summary:
+<ul>
+<li>First SiC sample tested! </li>
+<li>Saw three resonators that were pretty strong </li>
+<li>tan&delta; = $1.66\times10^{-4}$ -- Best we have done so far!</li>
+<li>We tested whether mag up and mag down thermalization time of our ADR was sufficient with this sample</li>
+</ul>
+
+</p>
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+Si-rich sample with a higher Si fraction than R2C3 and R1C2
+</p>
+
+</section>
+
+<section><h2>Wide Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showFigure('fig-5to7')">5.0 to 7.0 GHz</button>
+  <button onclick="showFigure('fig-all3')">4.0 to 5.5 GHz</button>
+  <button onclick="showFigure('fig-3to55')">3.0 to 5.5 GHz</button>
+  <button onclick="showFigure('fig-427to432')">4.27 to 4.32 GHz</button>
+  <button onclick="showFigure('fig-420to460')">4.20 to 4.60 GHz</button>
+</div>
+
+<figure id="fig-5to7" class="plot">
+  <img src="figs/VNA_wide_sweep_Delft_R1C3_pwr_-10.png" width="1000" alt="5to7">
+  <figcaption>Figure 2.1: Wide sweep from 5.0 to 7.0 GHz showing Res3</figcaption>
+</figure>
+
+<figure id="fig-all3" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R1C3_pwr_-10_time_12_29_54.png" width="1000" alt="all3">
+  <figcaption>Figure 2.2: Wide sweep from 4.0 to 5.5 GHz showing Res1, Res2, and Res3</figcaption>
+</figure>
+
+<figure id="fig-3to55" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R1C3_pwr_-10_time_12_13_56.png" width="1000" alt="3to55">
+  <figcaption>Figure 2.3: Ultrawide sweep from 3.0 to 5.5 GHz showing no Res0 but Res1, Res2, and Res3</figcaption>
+</figure>
+
+<figure id="fig-427to432" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R1C3_pwr_-10_time_12_28_22.png" width="1000" alt="427to432">
+  <figcaption>Figure 2.4: Fine sweep from 4.27 to 4.32 GHz showing no presence of a Res0</figcaption>
+</figure>
+
+<figure id="fig-420to460" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R1C3_pwr_-10_time_12_24_12.png" width="1000" alt="420to460">
+  <figcaption>Figure 2.5: Fine sweep from 4.20 to 4.60 GHz showing no presence of a Res0</figcaption>
+</figure>
+
+
+<script>
+  function showFigure(figId) {
+    document.querySelectorAll('.plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+
+</section>
+<section><h2>Power Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showPowerFigure('fig-power0')">Res0</button>
+  <button onclick="showPowerFigure('fig-power1')">Res1</button>
+  <button onclick="showPowerFigure('fig-power2')">Res2</button>
+  <button onclick="showPowerFigure('fig-power3')">Res3</button>
+</div>
+
+<figure id="fig-power0" class="power-plot">
+  <img src="figs/IQvsPower_res_0_Delft_R1C3_time_12_41_25_hi_f.png" width="1000" alt="IQ vs Power Res0">
+  <figcaption>Figure 3.1: IQ vs Power of what we thought would be Res0 but this shows no rez</figcaption>
+</figure>
+
+<figure id="fig-power1" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_1_Delft_R1C3_time_12_41_25_hi_f.png" width="1000" alt="IQ vs Power Res1">
+  <figcaption>Figure 3.2: IQ vs Power Res1</figcaption>
+</figure>
+
+<figure id="fig-power2" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_2_Delft_R1C3_time_12_41_25_hi_f.png" width="1000" alt="IQ vs Power Res2">
+  <figcaption>Figure 3.3: IQ vs Power Res2</figcaption>
+</figure>
+
+<figure id="fig-power3" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_3_Delft_R1C3_time_12_41_25_hi_f.png" width="1000" alt="IQ vs Power Res3">
+  <figcaption>Figure 3.4: IQ vs Power Res3</figcaption>
+</figure>
+
+
+<script>
+  function showPowerFigure(figId) {
+    document.querySelectorAll('.power-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.power-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+<section><h2>Temperature Sweeps</h2>
+It is important to note here that I renamed Res1 to Res0 and shifted the other two down 1 as well. Additionally, I am only showing the temperature sweeps from the fast mag up.
+
+<div class="button-row">
+  <button onclick="showTempMagUp('fig-temp-magupfast-0')">Res0</button>
+  <button onclick="showTempMagUp('fig-temp-magupfast-1')">Res1</button>
+  <button onclick="showTempMagUp('fig-temp-magupfast-2')">Res2</button>
+</div>
+
+<figure id="fig-temp-magupfast-0" class="temp-magup-plot">
+  <img src="figs/mag_up_fast/IQvsTemp_res_0_Delft_R1C3_mag_up_fast.png" alt="IQ vs Temp Res0 Mag Up Fast">
+  <figcaption>Figure 4.1.1: IQ vs Temp Res0 (Mag Up Fast)</figcaption>
+</figure>
+
+<figure id="fig-temp-magupfast-1" class="temp-magup-plot" style="display:none;">
+  <img src="figs/mag_up_fast/IQvsTemp_res_1_Delft_R1C3_mag_up_fast.png" alt="IQ vs Temp Res1 Mag Up Fast">
+  <figcaption>Figure 4.1.2: IQ vs Temp Res1 (Mag Up Fast)</figcaption>
+</figure>
+
+<figure id="fig-temp-magupfast-2" class="temp-magup-plot" style="display:none;">
+  <img src="figs/mag_up_fast/IQvsTemp_res_2_Delft_R1C3_mag_up_fast.png" alt="IQ vs Temp Res2 Mag Up Fast">
+  <figcaption>Figure 4.1.3: IQ vs Temp Res2 (Mag Up Fast)</figcaption>
+</figure>
+
+<script>
+  function showTempMagUp(figId) {
+    document.querySelectorAll('.temp-magup-plot').forEach(fig => {
+      fig.style.display = 'none';
+    });
+    document.getElementById(figId).style.display = 'block';
+  }
+</script>
+
+<style>
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .button-row button {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+  }
+
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.temp-magup-plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure figcaption::before {
+    content: none;
+  }
+</style>
+
+</section>
+
+<section><h2>Fits</h2>
+  <!-- ROW 1: Resonator -->
+  <div class="radio-row">
+    <span class="label">Resonator:</span>
+    <label><input type="radio" name="res" value="0" checked onchange="updatePlot()"> Res0</label>
+    <label><input type="radio" name="res" value="1" onchange="updatePlot()"> Res1</label>
+    <label><input type="radio" name="res" value="2" onchange="updatePlot()"> Res2</label>
+  </div>
+
+  <!-- ROW 2: Model -->
+  <div class="radio-row">
+    <span class="label">Model:</span>
+    <label><input type="radio" name="model" value="tls" checked onchange="updatePlot()"> TLS only</label>
+    <label><input type="radio" name="model" value="tlsmbt" onchange="updatePlot()"> TLS + MBT</label>
+  </div>
+
+  <!-- ROW 3: Sweep -->
+  <div class="radio-row">
+    <span class="label">Sweep:</span>
+    <label><input type="radio" name="sweep" value="up-fast" checked onchange="updatePlot()"> Mag up fast</label>
+    <label><input type="radio" name="sweep" value="up-slow" onchange="updatePlot()"> Mag up slow</label>
+    <label><input type="radio" name="sweep" value="down-fast" onchange="updatePlot()"> Mag down fast</label>
+    <label><input type="radio" name="sweep" value="down-slow" onchange="updatePlot()"> Mag down slow</label>
+  </div>
+
+  <!-- ================= FIGURES ================= -->
+
+  <!-- RES 0 -->
+  <figure id="fit-res-0-tls-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_tls_only_res_0_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res0 — TLS only — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tls-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_tls_only_res_0_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res0 — TLS only — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tls-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_tls_only_res_0_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res0 — TLS only — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tls-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_tls_only_res_0_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res0 — TLS only — Mag down slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tlsmbt-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_res_0_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res0 — TLS+MBT — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tlsmbt-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_res_0_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res0 — TLS+MBT — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tlsmbt-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_res_0_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res0 — TLS+MBT — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-0-tlsmbt-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_res_0_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res0 — TLS+MBT — Mag down slow</figcaption>
+  </figure>
+
+  <!-- RES 1 -->
+  <figure id="fit-res-1-tls-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_tls_only_res_1_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res1 — TLS only — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tls-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_tls_only_res_1_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res1 — TLS only — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tls-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_tls_only_res_1_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res1 — TLS only — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tls-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_tls_only_res_1_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res1 — TLS only — Mag down slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tlsmbt-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_res_1_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res1 — TLS+MBT — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tlsmbt-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_res_1_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res1 — TLS+MBT — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tlsmbt-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_res_1_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res1 — TLS+MBT — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-1-tlsmbt-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_res_1_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res1 — TLS+MBT — Mag down slow</figcaption>
+  </figure>
+
+  <!-- RES 2 -->
+  <figure id="fit-res-2-tls-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_tls_only_res_2_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res2 — TLS only — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tls-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_tls_only_res_2_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res2 — TLS only — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tls-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_tls_only_res_2_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res2 — TLS only — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tls-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_tls_only_res_2_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res2 — TLS only — Mag down slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tlsmbt-up-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_fast/F_vs_T_fits_res_2_Delft_R1C3_mag_up_fast.png" width="90%">
+    <figcaption>Res2 — TLS+MBT — Mag up fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tlsmbt-up-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_up_slow/F_vs_T_fits_res_2_Delft_R1C3_mag_up_slow.png" width="90%">
+    <figcaption>Res2 — TLS+MBT — Mag up slow</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tlsmbt-down-fast" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_fast/F_vs_T_fits_res_2_Delft_R1C3_mag_down_fast.png" width="90%">
+    <figcaption>Res2 — TLS+MBT — Mag down fast</figcaption>
+  </figure>
+
+  <figure id="fit-res-2-tlsmbt-down-slow" class="fit-plot" style="display:none;">
+    <img src="figs/mag_down_slow/F_vs_T_fits_res_2_Delft_R1C3_mag_down_slow.png" width="90%">
+    <figcaption>Res2 — TLS+MBT — Mag down slow</figcaption>
+  </figure>
+
+  <script>
+      function updatePlot() {
+        const res = document.querySelector('input[name="res"]:checked').value;
+        const model = document.querySelector('input[name="model"]:checked').value;
+        const sweep = document.querySelector('input[name="sweep"]:checked').value;
+
+        document.querySelectorAll('.fit-plot').forEach(fig => {
+          fig.style.display = 'none';
+        });
+
+        const id = `fit-res-${res}-${model}-${sweep}`;
+        const fig = document.getElementById(id);
+
+        if (fig) {
+          fig.style.display = 'block';
+        } else {
+          console.warn('Missing plot:', id);
+        }
+      }
+
+    // Ensure correct plot on initial load
+    window.addEventListener('DOMContentLoaded', updatePlot);
+  </script>
+
+  <style>
+    .radio-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2rem;
+      margin: 0.9rem 0;
+      flex-wrap: wrap;
+    }
+
+    .radio-row .label {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+
+    .radio-row label {
+      cursor: pointer;
+      font-size: 1.05rem;
+    }
+
+    figure {
+      text-align: center;
+      counter-increment: none;
+    }
+
+    figure.fit-plot > figcaption {
+      margin-top: 0.75rem;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    figure figcaption::before {
+      content: none;
+    }
+  </style>
+
+</section>
+
+<section><h2>R1C3 Thermalization Results</h2>
+Since we average between the mag up and mag down data, from this plot we can see that if we were to average the fast and slow runs they'd be in approximately the same place, making us confident that we are allowing for enough time for the samples to thermalize.
+  <figure>
+    <img src="figs/R1C3_thermalization_comparison.png" width="90%" alt="thermalization">
+    <figcaption>R1C3 Thermalization Comparison</figcaption>
+  </figure>
+
+</section>
+
+<hr>
+</body>

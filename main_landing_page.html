@@ -47,6 +47,28 @@
 
 <section><h2>Microwave Samples</h2>
 
+<figure id="fig-batch1and2" class="table">
+  <img src="Table_Batch_1_and_2.png" width="800" alt="Batch 1 and 2 Table">
+  <figcaption>Table 1: Batch 1 and 2 Fabrication Information</figcaption>
+</figure>
+
+<style>
+  figure {
+    text-align: center;
+    counter-increment: none;
+  }
+
+  figure.table > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  figure.table figcaption::before {
+    content: none;
+  }
+</style>
+
     <h3>ADR Testing</h3>
     <p>
     The table below summarizes the results from the first batch of samples
@@ -81,7 +103,7 @@
 				<td>SEM showed mild delamination</td>
             </tr>
 			<tr>
-                <td><a href="./R1C3_test_page">R1C3</a></td>
+                <td><a href="./R1C3_test_page/R1C3_test_page.html">R1C3</a></td>
 				<td>SiC</td>
 				<td>NbTiN</td>
 				<td>Si-Rich 2</td>
@@ -108,7 +130,7 @@
 				<td>Cracked during fab :(</td>
             </tr>
 			<tr>
-                <td><a href="./R2C3_test_page">R2C3</a></td>
+                <td><a href="./R2C3_test_page/R2C3_test_page.html">R2C3</a></td>
 				<td>SiC</td>
 				<td>NbTiN</td>
 				<td>High Q (=R1C1)</td>
@@ -201,9 +223,11 @@
     counter-increment: none;
   }
 
-  figcaption {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
+  figure.plot > figcaption {
+    margin-top: 0.75rem;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
   }
   figure figcaption::before {
     content: none;

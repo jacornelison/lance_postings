@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>R2C3 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <style>
+       /* BUTTON ROWS */
+       .button-row {
+           display: flex;
+           justify-content: center;
+           gap: 1.5rem;
+           margin: 1.5rem 0;
+       }
+       .button-row button, .button-row label {
+           font-size: 1.1rem;
+           cursor: pointer;
+       }
+
+       /* FIGURES */
+       figure {
+           display: block;
+           margin: 1.5rem auto;
+           text-align: center;
+           width: 100%;
+       }
+
+       figure img {
+           display: block;
+           margin: 0 auto;
+           width: 100%;
+           max-width: 1600px;
+           height: auto;
+       }
+
+       figure figcaption {
+           font-size: 1.3rem;
+           font-weight: 500;
+           margin-top: 0.5rem;
+           text-align: center;
+       }
+
+       figure figcaption::before {
+           content: none;
+       }
+   </style>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>R2C3 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_R2C3";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2025 Dec 29
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>Summary:</p>
+<ul>
+<li>Fourth and last SiC sample tested, second one that saw resonances </li>
+<li>Saw one really strong resonator</li>
+<li>tan&delta; = $1.54\times10^{-4}$ -- Best one in the first two batches!</li>
+</ul>
+
+
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+High-Q twin SiC sample
+</p>
+
+</section>
+
+<section><h2>Wide Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showFigure('fig-4to6')">4.0 to 6.0 GHz</button>
+  <button onclick="showFigure('fig-575to7')">5.75 to 7.0 GHz</button>
+  <button onclick="showFigure('fig-615to620')">6.15 to 6.20 GHz</button>
+</div>
+
+<figure id="fig-4to6" class="plot">
+  <img src="figs/VNA_wide_sweep_Delft_R2C3_pwr_-10_time_19_15_34.png" alt="4to6">
+  <figcaption>Figure 2.1: Wide sweep from 4.0 to 6.0 GHz showing a resonator</figcaption>
+</figure>
+
+<figure id="fig-575to7" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R2C3_pwr_-10_time_19_17_21.png" alt="575to7">
+  <figcaption>Figure 2.2: Wide sweep from 5.75 to 7.0 GHz showing a resonator</figcaption>
+</figure>
+
+<figure id="fig-615to620" class="plot" style="display:none;">
+  <img src="figs/VNA_wide_sweep_Delft_R2C3_pwr_-10_time_19_27_39.png" alt="615to620">
+  <figcaption>Figure 2.3: Fine sweep from 6.15 to 6.20 GHz on what I thought was a resonator</figcaption>
+</figure>
+
+<script>
+        function showFigure(figId) {
+            document.querySelectorAll('.plot').forEach(fig => fig.style.display = 'none');
+            document.getElementById(figId).style.display = 'block';
+        }
+</script>
+
+</section>
+<section><h2>Power Sweeps</h2>
+
+<div class="button-row">
+  <button onclick="showPowerFigure('fig-power0')">Res0</button>
+  <button onclick="showPowerFigure('fig-power1')">Res1</button>
+</div>
+
+<figure id="fig-power0" class="power-plot">
+  <img src="figs/IQvsPower_res_0_Delft_R2C3_time_19_31_22_hi_f.png" alt="IQ vs Power Res0">
+  <figcaption>Figure 3.1: Beautiful IQ vs Power the one rez we found with this sample</figcaption>
+</figure>
+
+<figure id="fig-power1" class="power-plot" style="display:none;">
+  <img src="figs/IQvsPower_res_1_Delft_R2C3_time_19_31_22_hi_f.png" alt="IQ vs Power Res1">
+  <figcaption>Figure 3.2: IQ vs Power of what I thought was a rez but isn't</figcaption>
+</figure>
+
+<script>
+        function showPowerFigure(figId) {
+            document.querySelectorAll('.power-plot').forEach(fig => fig.style.display = 'none');
+            document.getElementById(figId).style.display = 'block';
+        }
+</script>
+</section>
+
+<section><h2>Temperature Sweeps</h2>
+
+  <figure>
+    <img src="figs/IQvsTemp_res_0_Delft_R2C3.png" alt="IQ vs Temp Res0">
+    <figcaption>4.1: IQ vs Temperature of Res0</figcaption>
+  </figure>
+
+</section>
+
+<section><h2>Fits</h2>
+
+  <!-- Row 1: TLS Type -->
+  <div class="button-row">
+    <label><input type="radio" name="tls_type" value="tls" checked> TLS-only</label>
+    <label><input type="radio" name="tls_type" value="tlsmbt"> TLS+MBT</label>
+  </div>
+
+  <!-- Row 2: Mag Direction -->
+  <div class="button-row">
+    <label><input type="radio" name="mag_dir" value="up" checked> Mag Up</label>
+    <label><input type="radio" name="mag_dir" value="down"> Mag Down</label>
+  </div>
+
+  <!-- Figures -->
+  <figure id="fig-tls-up">
+    <img src="figs/F_vs_T_fits_tls_only_res_0_Delft_R2C3_mag_up.png" alt="TLS-only Mag Up">
+    <figcaption>TLS-only Mag Up</figcaption>
+  </figure>
+
+  <figure id="fig-tls-down" style="display:none;">
+    <img src="figs/F_vs_T_fits_tls_only_res_0_Delft_R2C3_mag_down.png" alt="TLS-only Mag Down">
+    <figcaption>TLS-only Mag Down</figcaption>
+  </figure>
+
+  <figure id="fig-tlsmbt-up" style="display:none;">
+    <img src="figs/F_vs_T_fits_res_0_Delft_R2C3_mag_up.png" alt="TLS+MBT Mag Up">
+    <figcaption>TLS+MBT Mag Up</figcaption>
+  </figure>
+
+  <figure id="fig-tlsmbt-down" style="display:none;">
+    <img src="figs/F_vs_T_fits_res_0_Delft_R2C3_mag_down.png" alt="TLS+MBT Mag Down">
+    <figcaption>TLS+MBT Mag Down</figcaption>
+  </figure>
+
+  <script>
+        function updateFigure() {
+            const type = document.querySelector('input[name="tls_type"]:checked').value;
+            const mag = document.querySelector('input[name="mag_dir"]:checked').value;
+            const ids = ["fig-tls-up", "fig-tls-down", "fig-tlsmbt-up", "fig-tlsmbt-down"];
+            ids.forEach(id => document.getElementById(id).style.display = 'none');
+            document.getElementById((type === 'tls' ? 'fig-tls-' : 'fig-tlsmbt-') + mag).style.display = 'block';
+        }
+        document.querySelectorAll('input[name="tls_type"], input[name="mag_dir"]').forEach(el => {
+            el.addEventListener('change', updateFigure);
+        });
+  </script>
+
+</section>
+
+<hr>
+</body>
