@@ -52,6 +52,11 @@
   <figcaption>Table 1: Batch 1 and 2 Fabrication Information</figcaption>
 </figure>
 
+<figure id="fig-batch3" class="table">
+  <img src="Table_Batch_3.png" width="800" alt="Batch 3 Table">
+  <figcaption>Table 2: Batch 3 Fabrication Information</figcaption>
+</figure>
+
 <style>
   figure {
     text-align: center;
@@ -71,8 +76,10 @@
 
     <h3>ADR Testing</h3>
     <p>
-    The table below summarizes the results from the first batch of samples
+    The table below summarizes the results from the first and second batch of samples
     </p>
+
+    <!-- Batch 1 and 2 table -->
     <figure class="table">
         <table class="results">
             <tr>
@@ -136,7 +143,7 @@
 				<td>High Q (=R1C1)</td>
 				<td>1.54</td>
 				<td>30Sep2025</td>
-				<td>1 rez, current best</td>
+				<td>1 rez, best from batch</td>
             </tr>
 			<tr>
                 <td><a href="./R3C1_test_page/R3C1_test_page.html">R3C1</a></td>
@@ -157,6 +164,104 @@
 				<td>3 rez</td>
             </tr>
         </table>
+
+</figure>
+
+<!-- Batch 3 table -->
+<p>
+The table below summarizes the results from the third and second batch of samples.
+<br><br>
+NOTE: we are not testing B3, B4, E3, and E4 due to the fact that the lambda/4 samples
+ended up in the lambda/2 space from testing F3 and F4. Our working theory for why this happened
+could be due to the grounding etch at the end of the resonators not working out. We have the same
+dielectrics with their respective lambda/2 measurements and cannot spare fridge cycles
+so we are ok not testing those samples.
+
+</p>
+<figure class="table">
+    <table class="results">
+        <tr>
+            <th>Sample</th>
+    <th>Dielectric</th>
+    <th>Conductor</th>
+            <th>Description</th>
+            <th>tan&delta; (10<sup>-4</sup>)</th>
+            <th>Date Tested</th>
+    <th>Comments<th>
+        </tr>
+        <tr>
+            <td><a href="./B1_test_page/B1_test_page.html">B1</a></td>
+    <td>SiNx</td>
+    <td>NbTiN</td>
+    <td>Kavli Std w/ RF Bias</td>
+    <td>3.68</td>
+    <td>20Apr2026</td>
+    <td>2 rez, rez2 and rez3 poor fits</td>
+        </tr>
+  <tr>
+            <td><a href="./B2_test_page/B2_test_page.html">B2</a></td>
+    <td>SiNx</td>
+    <td>NbTiN</td>
+    <td>Kavli Std w/ RF Bias</td>
+    <td>3.67</td>
+    <td>3Mar2026/12Mar2026</td>
+    <td>Tested w/ R1C3 first then w/ F3, saw 1 rez both times</td>
+        </tr>
+  <tr>
+            <td><a href="./E1_test_page/E1_test_page.html">E1</a></td>
+    <td>a-Si:H</td>
+    <td>NbTiN</td>
+    <td>Kavli Standard</td>
+    <td>0.6038</td>
+    <td>7Apr2026</td>
+    <td>3 rez, 4th likely swallowed by box mode</td>
+        </tr>
+  <tr>
+            <td>E2</a></td>
+    <td>a-Si:H</td>
+    <td>NbTiN</td>
+    <td>Kavli Standard</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+        </tr>
+  <tr>
+            <td><a href="./F1_test_page/F1_test_page.html">F1</a></td>
+    <td>SiC l/2</td>
+    <td>NbTiN</td>
+    <td>w/ SiNx capping layer</td>
+    <td>0.62</td>
+    <td>24Mar2026</td>
+    <td>Saw 4 rez</td>
+        </tr>
+  <tr>
+            <td>F2</a></td>
+    <td>SiC l/2</td>
+    <td>NbTiN</td>
+    <td>w/ SiNx capping layer</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+        </tr>
+  <tr>
+            <td><a href="./F3_test_page/F3_test_page.html">F3</a></td>
+    <td>SiC l/4</td>
+    <td>NbTiN</td>
+    <td>w/ SiNx capping layer</td>
+    <td>0.79</td>
+    <td>12Mar2026</td>
+    <td>3 rez, tested w/ B2</td>
+        </tr>
+  <tr>
+            <td><a href="./F4_test_page/F4_test_page.html">F4</a></td>
+    <td>SiC l/4</td>
+    <td>NbTiN</td>
+    <td>w/ SiNx capping layer</td>
+    <td>0.809</td>
+    <td>7Apr2026</td>
+    <td>1 rez, had another but fit bad, tested w/ E1</td>
+        </tr>
+    </table>
 
 </figure>
 

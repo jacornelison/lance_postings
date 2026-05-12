@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>B1 Results Page</title>
+    <link rel="stylesheet" type="text/css" href="scripts/style.css">
+    <!-- Load up MathJax for math notation -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript"
+            src="../mathjax/MathJax.js?config=TeX-AMS-MML_SVG">
+            // src="../mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+</head>
+
+<body>
+<!-- Add my custom pager script -->
+<script type="text/javascript" src="scripts/pager.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts/pager.css">
+
+<header>
+    <h1>B1 Test Page</h1>
+	<script type="text/javascript">var samplename = "Delft_B1";</script>
+
+    <time datetime="2020-xx-xx" class="published updated">
+        2026 May 11
+    </time> —
+    H. Athreya & J. Cornelison
+
+</header>
+
+<hr>
+<p>
+Summary:
+<ul>
+<li>Saw 4 resontators but only rez0 and rez1 had good fits </li>
+<li>tan&delta; $\approx 3.68\times10^{-4}$ -- about 3x better than same receipe from batch 1 all w/ RF bias</li>
+</ul>
+
+</p>
+
+<hr>
+
+<section><h2>Fab Info</h2>
+<p>
+"Kavli Standard" SiNx w/ RF bias, lambda/2
+</p>
+
+<p>
+*should probably include some info about the mask.
+</p>
+
+</section>
+
+<section>
+  <h2>Wide Sweeps</h2>
+  <div style="margin-bottom: 10px;">
+    <button onclick="showWideSweep('3.8_to_7.0')"  class="sweep-btn">3.8–7.0 GHz</button>
+    <button onclick="showWideSweep('4.5_to_5.0')"  class="sweep-btn">4.5–5.0 GHz</button>
+    <button onclick="showWideSweep('5.0_to_6.0')"  class="sweep-btn">5.0–6.0 GHz</button>
+    <button onclick="showWideSweep('5.0_to_7.0')"  class="sweep-btn">5.0–7.0 GHz</button>
+    <button onclick="showWideSweep('6.0_to_6.5')"  class="sweep-btn">6.0–6.5 GHz</button>
+    <button onclick="showWideSweep('6.5_to_7.0')"  class="sweep-btn">6.5–7.0 GHz</button>
+  </div>
+  <figure>
+    <img alt="Wide Sweep" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_B1_pwr_10_frq_3.8_to_7.0.png" width="95%"/>
+    <figcaption id="widesweep-caption">3.8–7.0 GHz</figcaption>
+  </figure>
+</section>
+
+<style>
+  .sweep-btn {
+    margin: 3px;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .sweep-btn:hover { background-color: #c8c8c8; }
+  .sweep-btn.active { background-color: #4a90d9; color: white; border-color: #2c6fad; }
+</style>
+
+<script>
+  function showWideSweep(frqRange) {
+    document.getElementById('widesweeppager').src =
+      'figs/VNA_wide_sweep_Delft_B1_pwr_10_frq_' + frqRange + '.png';
+    document.getElementById('widesweep-caption').textContent =
+      frqRange.replace('_to_', '–').replace(/_/g, ' ') + ' GHz';
+    document.querySelectorAll('.sweep-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Highlight the first button on load
+  document.querySelector('.sweep-btn').classList.add('active');
+</script>
+
+<section><h2>Power Sweeps</h2>
+<figure>
+        <img alt="Power Sweep Pager" id="powersweeppager" src="#" width="95%"/>
+        <figcaption>
+
+        </figcaption>
+        <script type="text/javascript">
+
+			pager.link("#powersweeppager",
+                {
+					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
+                },
+                function(params) {
+                    return 'figs/IQvsPower_res_'+params.res+'_'+samplename+'.png';
+
+                });
+            pager.setparams({
+				'res': '0',
+            });
+        </script>
+    </figure>
+
+</section>
+<section><h2>Temperature Sweeps</h2>
+    <p>
+
+
+    </p>
+    <figure>
+        <img alt="Temp Sweep Pager" id="tempsweeppager" src="#" width="95%"/>
+        <figcaption>
+
+        </figcaption>
+        <script type="text/javascript">
+
+			pager.link("#tempsweeppager",
+                {
+                    'Plot|plt': ['IvsQ|IQvsTemp','$f_0$vsT|f0_vs_T_fits'],
+					'Fit Type|fit': ['TLS-only|_tls_only','TLS+MBT|_tls+mbt'],
+					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
+
+                },
+                function(params) {
+					if (params.plt=="IQvsTemp") {
+						return 'figs/'+params.plt+'_res_'+params.res+'_'+samplename+'.png';
+					} else {
+                    return 'figs/'+params.plt+'_f0'+params.fit+'_res_'+params.res+'_'+samplename+'.png';
+					}
+                });
+            pager.setparams({
+                'plt': 'IQvsTemp',
+                'fit': '_tls_only',
+				'res': '0',
+            });
+        </script>
+    </figure>
+
+
+
+</section>
+
+
+<hr>
+</body>
