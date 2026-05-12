@@ -269,10 +269,10 @@ so we are ok not testing those samples.
 
 <div class="button-row">
   <button onclick="showFigure('fig-lance')">LANCE only data</button>
-  <button onclick="showFigure('fig-argonne')">Argonne only data</button>
-  <button onclick="showFigure('fig-full')">All data</button>
-  <button onclick="showFigure('fig-material')">All data by material</button>
-  <button onclick="showFigure('fig-SiN')">SiNx only data</button>
+  <button onclick="showFigure('fig-sifrac')">Silicon Fraction Visualization</button>
+  <button onclick="showFigure('fig-R1C3_therm')">R1C3 Thermalization Test</button>
+  <button onclick="showFigure('fig-tand_vs_Tsub')">tand vs Tsub</button>
+  <button onclick="showFigure('fig-tand_vs_Tsub_SiNx_only')">tand vs Tsub SiNx only</button>
 </div>
 
 <figure id="fig-lance" class="plot">
@@ -280,24 +280,24 @@ so we are ok not testing those samples.
   <figcaption>Figure 1: LANCE only data</figcaption>
 </figure>
 
-<figure id="fig-argonne" class="plot" style="display:none;">
-  <img src="plots/loss_sample_comparison_argonne_only.png" width="800" alt="Argonne only data">
-  <figcaption>Figure 2: Argonne only data</figcaption>
+<figure id="fig-sifrac" class="plot" style="display:none;">
+  <img src="plots/Silicon_Frac_Visualization.png" width="800" alt="Silicon fraction data">
+  <figcaption>Figure 2: Silicon Fraction Visualization</figcaption>
 </figure>
 
-<figure id="fig-full" class="plot" style="display:none;">
-  <img src="plots/loss_sample_comparison_full_1.png" width="800" alt="All data">
-  <figcaption>Figure 3: All data</figcaption>
+<figure id="fig-R1C3_therm" class="plot" style="display:none;">
+  <img src="plots/R1C3_thermalization_comparison.png" width="800" alt="R1C3 therm">
+  <figcaption>Figure 3: R1C3 Thermalization Test</figcaption>
 </figure>
 
-<figure id="fig-material" class="plot" style="display:none;">
-  <img src="plots/loss_sample_comparison_full_material.png" width="800" alt="All data by material">
-  <figcaption>Figure 4: All data by material</figcaption>
+<figure id="fig-tand_vs_Tsub" class="plot" style="display:none;">
+  <img src="plots/tand_vs_Tsub.png" width="800" alt="tand vs Tsub">
+  <figcaption>Figure 4: tand vs Tsub</figcaption>
 </figure>
 
-<figure id="fig-SiN" class="plot" style="display:none;">
-  <img src="plots/loss_SiN_only.png" width="800" alt="SiNx only data">
-  <figcaption>Figure 5: SiNx only data</figcaption>
+<figure id="fig-tand_vs_Tsub_SiNx_only" class="plot" style="display:none;">
+  <img src="plots/tand_vs_Tsub_SiNx_only.png" width="800" alt="SiNx only data">
+  <figcaption>Figure 5: tand vs Tsub for SiNx only</figcaption>
 </figure>
 
 <script>
@@ -340,8 +340,8 @@ so we are ok not testing those samples.
 </style>
 
 <figure>
-  <img src="plots/sim_comparison_20251218.png" alt="Sim Comparison Plot Updated 12/18/2025" width="800">
-  <figcaption>Sim Comparison Plot Updated 12/18/2025</figcaption>
+  <img src="plots/freq_compare.png" alt="Sim Comparison Plot Updated 12/18/2025" width="800">
+  <figcaption>Sim Comparison Plot Updated 05/12/2026</figcaption>
 </figure>
 
 

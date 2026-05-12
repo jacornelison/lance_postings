@@ -30,7 +30,7 @@
 
 <header>
     <h1>F3 Test Page</h1>
-	<script type="text/javascript">var samplename = "Delft_B1";</script>
+	<script type="text/javascript">var samplename = "Delft_B2_and_F3";</script>
 
     <time datetime="2020-xx-xx" class="published updated">
         2026 May 11
@@ -43,9 +43,15 @@
 <p>
 Summary:
 <ul>
-<li>Saw 4 resontators but only rez0 and rez1 had good fits </li>
-<li>tan&delta; $\approx 3.68\times10^{-4}$ -- about 3x better than same receipe from batch 1 all w/ RF bias</li>
+<li>This cooldown was a joint cooldown between F3 and B2</li>
+<li>Saw 3 rez that showed in lambda/2 freq instead of lambda/2 freqs</li>
+<li>tan&delta; $\approx 7.9\times10^{-5}$</li>
 </ul>
+
+<figure>
+  <img alt="Summary Slide" src="figs/Summary_Slide.png" width="75%"/>
+  <figcaption>Summary Slide</figcaption>
+</figure>
 
 </p>
 
@@ -53,7 +59,7 @@ Summary:
 
 <section><h2>Fab Info</h2>
 <p>
-"Kavli Standard" SiNx w/ RF bias, lambda/2
+SiC w/ SiNx capping layer, lambda/4 but showed up as lambda/2
 </p>
 
 <p>
@@ -64,51 +70,19 @@ Summary:
 
 <section>
   <h2>Wide Sweeps</h2>
-  <div style="margin-bottom: 10px;">
-    <button onclick="showWideSweep('3.8_to_7.0')"  class="sweep-btn">3.8–7.0 GHz</button>
-    <button onclick="showWideSweep('4.5_to_5.0')"  class="sweep-btn">4.5–5.0 GHz</button>
-    <button onclick="showWideSweep('5.0_to_6.0')"  class="sweep-btn">5.0–6.0 GHz</button>
-    <button onclick="showWideSweep('5.0_to_7.0')"  class="sweep-btn">5.0–7.0 GHz</button>
-    <button onclick="showWideSweep('6.0_to_6.5')"  class="sweep-btn">6.0–6.5 GHz</button>
-    <button onclick="showWideSweep('6.5_to_7.0')"  class="sweep-btn">6.5–7.0 GHz</button>
-  </div>
+
+  <li>The resonators seen at 4.99, 5.28, 5.65 GHz were determined to be F3 from comparison to F1 data</li>
+  <li>The resonator seen at 5.46 GHz was determined to be B2 from comparison to B1 data</li>
+  <li>More sweeps exist in the github, these are just the relavent ones. </li>
+
   <figure>
-    <img alt="Wide Sweep" id="widesweeppager" src="figs/VNA_wide_sweep_Delft_B1_pwr_10_frq_3.8_to_7.0.png" width="95%"/>
-    <figcaption id="widesweep-caption">3.8–7.0 GHz</figcaption>
+    <img alt="Wide Sweep" src="figs/VNA_wide_sweep_Delft_B2_and_F3_pwr_-10_frq_4.8_to_6.0.png" width="95%"/>
+    <figcaption>4.8–6.0 GHz</figcaption>
   </figure>
-</section>
-
-<style>
-  .sweep-btn {
-    margin: 3px;
-    padding: 6px 12px;
-    cursor: pointer;
-    background-color: #e0e0e0;
-    border: 1px solid #999;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
-  .sweep-btn:hover { background-color: #c8c8c8; }
-  .sweep-btn.active { background-color: #4a90d9; color: white; border-color: #2c6fad; }
-</style>
-
-<script>
-  function showWideSweep(frqRange) {
-    document.getElementById('widesweeppager').src =
-      'figs/VNA_wide_sweep_Delft_B1_pwr_10_frq_' + frqRange + '.png';
-    document.getElementById('widesweep-caption').textContent =
-      frqRange.replace('_to_', '–').replace(/_/g, ' ') + ' GHz';
-    document.querySelectorAll('.sweep-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-
-  // Highlight the first button on load
-  document.querySelector('.sweep-btn').classList.add('active');
-</script>
 
 <section><h2>Power Sweeps</h2>
 <figure>
-        <img alt="Power Sweep Pager" id="powersweeppager" src="#" width="95%"/>
+        <img alt="Power Sweep Pager" id="powersweeppager" src="figs/IQvsPower_res_8_Delft_B2_and_F3.png" width="95%"/>
         <figcaption>
 
         </figcaption>
@@ -116,14 +90,16 @@ Summary:
 
 			pager.link("#powersweeppager",
                 {
-					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
+					'Resonator|res': ['8|8', '9|9', '11|11'],
                 },
                 function(params) {
                     return 'figs/IQvsPower_res_'+params.res+'_'+samplename+'.png';
 
                 });
-            pager.setparams({
-				'res': '0',
+                window.addEventListener('load', function() {
+                pager.setparams({
+                    'res': '8',
+                });
             });
         </script>
     </figure>
@@ -145,20 +121,20 @@ Summary:
                 {
                     'Plot|plt': ['IvsQ|IQvsTemp','$f_0$vsT|f0_vs_T_fits'],
 					'Fit Type|fit': ['TLS-only|_tls_only','TLS+MBT|_tls+mbt'],
-					'Resonator|res': ['0|0', '1|1', '2|2', '3|3'],
+					'Resonator|res': ['8|8', '9|9', '11|11'],
 
                 },
                 function(params) {
 					if (params.plt=="IQvsTemp") {
-						return 'figs/'+params.plt+'_res_'+params.res+'_'+samplename+'.png';
+						return 'figs/higher_and_lower_temp_sweeps/cleaned/'+params.plt+'_res_'+params.res+'_'+samplename+'.png';
 					} else {
-                    return 'figs/'+params.plt+'_f0'+params.fit+'_res_'+params.res+'_'+samplename+'.png';
+                    return 'figs/higher_and_lower_temp_sweeps/cleaned/'+params.plt+'_f0'+params.fit+'_res_'+params.res+'_'+samplename+'.png';
 					}
                 });
             pager.setparams({
                 'plt': 'IQvsTemp',
                 'fit': '_tls_only',
-				'res': '0',
+				        'res': '8',
             });
         </script>
     </figure>
